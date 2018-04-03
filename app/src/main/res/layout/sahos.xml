@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="deco.sleepp.SahosActivity">
+
+    <TextView
+        android:id="@+id/tv_sahos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Apnea Obstructiva del sueño (SAHOS)"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_insomnio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_sahos"
+        android:fontFamily="sans-serif"
+        android:paddingTop="8dp"
+        android:gravity="start"
+        android:text="Consiste en la presencia, durante el sueño, de episodios repetidos de obstrucción,
+completa en el caso de las apneas y parcial en el caso de las hipopneas, al flujo aéreo en la vía aérea alta. Estos episodios
+provocan con frecuencia una reducción de la saturación de oxígeno. Por definición, las apneas e hipopneas deben durar un mínimo
+de 10 segundos, y no es infrecuente que se prolonguen incluso durante un minuto o más. Pueden ocurrir en cualquier fase del sueño,
+aunque lo más frecuente es que lo hagan en las fases 1 y 2, y en la fase REM, produciéndose típicamente las mayores desaturaciones en esta última "
+        android:textSize="18sp"/>
+
+</RelativeLayout>

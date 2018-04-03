@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="deco.sleepp.ApneaActivity">
+
+    <TextView
+        android:id="@+id/tv_apnea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Apnea Central Primaria"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_insomnio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_apnea"
+        android:fontFamily="sans-serif"
+        android:paddingTop="8dp"
+        android:gravity="start"
+        android:text="Se caracteriza por episodios recurrentes de cese de la respiración durante el sueño, sin que se asocie a la apnea
+ningún movimiento ni esfuerzo respiratorio. La repetición de estos episodios de apnea a lo largo de la noche produce una
+fragmentación del sueño, despertares frecuentes y rápidos tras las pausas de respiración, y excesiva somnolencia diurna."
+        android:textSize="18sp"/>
+
+</RelativeLayout>

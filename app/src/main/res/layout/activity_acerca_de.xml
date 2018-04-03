@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:background="@drawable/degradado"
+    tools:context="deco.sleepp.AcercaDe">
+
+    <!-- Titulo "¿Quienes Somos?" -->
+    <TextView
+        android:id="@+id/tv_acerca_dormiapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Acerca de DormiApp"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/image_Dormiapp"
+        android:layout_width="285dp"
+        android:layout_height="230dp"
+        android:src="@drawable/descanso"
+        android:layout_below="@+id/tv_acerca_dormiapp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/que_es_dormiapp"
+        android:layout_below="@id/image_Dormiapp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+
+
+</RelativeLayout>

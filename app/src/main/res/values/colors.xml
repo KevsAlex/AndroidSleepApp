@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#01579B</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorEncuestaSueno">#0277BD</color>
+    <color name="naranja">#E65100</color>
+    <color name="white">#ffffff</color>
+    <color name="overflowMenuBg">#a2749b</color>
+    <color name="colorNegro">#000000</color>
+
+</resources>

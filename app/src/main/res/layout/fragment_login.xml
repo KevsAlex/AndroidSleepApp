@@ -1,13 +1,96 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="deco.sleepp.Fragments.LoginFragment">
+    android:background="@drawable/skyblur"
+    android:focusable="true"
+    tools:context="deco.sleepp.Fragments.LoginPacienteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/clinica_logo" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="22dp"
+        android:gravity="center"
+        android:text="Ingresar como paciente"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:hint="correo"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textColorHint="#c4c4ba"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/editCorreo"
+        />
+
+    <EditText
+        android:hint="password"
+        android:id="@+id/editPassword"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textColorHint="#c4c4ba"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editCorreo"
+        android:layout_alignStart="@+id/editCorreo"
+        android:layout_below="@+id/editCorreo" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/view_border"
+        android:text="Ingresa"
+        android:textColor="@color/white"
+        android:id="@+id/bLogin" />
+
+    <TextView
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_below="@+id/bLogin"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="15dp"
+        android:text="¿No tienes una cuenta, regístrate!"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:text="Ingresa como doctor" />
+
+
+
+
+</RelativeLayout>

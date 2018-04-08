@@ -1,29 +1,65 @@
 package deco.sleepp;
 
+
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+
+import java.util.ArrayList;
+
+import deco.sleepp.Fragments.LoginDoctorFragment;
+import deco.sleepp.Fragments.LoginPacienteFragment;
 
 public class LoginActivity extends AppCompatActivity {
+
+
+    private LoginPacienteFragment mLoginPacienteFragment;
+    private LoginDoctorFragment mDoctorFragment;
+    private ViewPager mViewPager;
+    private ArrayList<Fragment> mFragments;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mViewPager = findViewById(R.id.viewPager);
+        mLoginPacienteFragment = new LoginPacienteFragment();
+        mDoctorFragment = new LoginDoctorFragment();
+        mFragments = new ArrayList<>();
+        mFragments.add(mLoginPacienteFragment);
+        mFragments.add(mDoctorFragment);
+        MyAdapter adapter = new MyAdapter(getSupportFragmentManager(),mFragments);
+        mViewPager.setAdapter(adapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        //FragmentManager manager = getSupportFragmentManager();
+        //FragmentTransaction transaction= manager.beginTransaction();
+        //transaction.replace(R.id.fragmentCOntainerLogin,mLoginPacienteFragment);
+        //transaction.commit();
+    }
+
+    public class MyAdapter extends FragmentPagerAdapter{
+
+        private ArrayList<Fragment> mFragments;
+
+        public MyAdapter(FragmentManager fm,ArrayList<Fragment> fragments) {
+            super(fm);
+            mFragments = fragments;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
     }
 
 }

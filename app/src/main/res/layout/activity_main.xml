@@ -9,6 +9,7 @@
     tools:context="deco.sleepp.MainActivity">
 
     <!-- seccion para incluir la appbar -->
+
     <include
         android:id="@+id/bar_principal"
         layout="@layout/app_bar">

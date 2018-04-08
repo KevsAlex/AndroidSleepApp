@@ -89,4 +89,7 @@
     <string name="que_es_dormiapp">Es una aplicación que consta con escalas para medir la calidad del sueño del paciente. Supervisado por especialistas de la Clínica de Calidad del sueño de Universidad Autónoma de México.</string>
     <string name="title_activity_login">LoginActivity</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

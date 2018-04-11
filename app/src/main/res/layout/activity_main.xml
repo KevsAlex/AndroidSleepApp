@@ -12,8 +12,10 @@
 
     <include
         android:id="@+id/bar_principal"
-        layout="@layout/app_bar">
-    </include>
+        layout="@layout/app_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"></include>
 
     <!-- Este es el espacio de trabajo en blanco -->
     <RelativeLayout
@@ -25,6 +27,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+
+
 
         <!-- Este es la vista del menu general que tendra la aplcación -->
         <!-- Boton numero1: ¿Que son los trastornos? -->
@@ -47,7 +51,7 @@
                 android:text="@string/String_Informacion"
                 android:textAllCaps="false"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Espacio de 5 dp antes de poner el siguiente boton -->
@@ -117,7 +121,7 @@
                 android:text="@string/String_clinica_presentacion"
                 android:textAllCaps="false"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

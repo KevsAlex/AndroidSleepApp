@@ -13,18 +13,22 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import deco.sleepp.MainActivity;
+import deco.sleepp.MenuPaciente;
 import deco.sleepp.Models.Paciente;
 import deco.sleepp.R;
+import deco.sleepp.WebService.AppWebService;
+import deco.sleepp.WebService.ResponseWService;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginPacienteFragment extends Fragment implements View.OnClickListener{
+public class LoginPacienteFragment extends Fragment implements View.OnClickListener,ResponseWService{
 
     private EditText mEdNombre;
     private EditText mEdPassword;
     private Button mButtonLogin;
     private Paciente mPaciente;
+    private AppWebService mAppWebService;
 
     public LoginPacienteFragment() {
 
@@ -36,6 +40,10 @@ public class LoginPacienteFragment extends Fragment implements View.OnClickListe
         mPaciente = new Paciente();
         mEdNombre = view.findViewById(R.id.editCorreo);
         mEdPassword = view.findViewById(R.id.editPassword);
+        mAppWebService = new AppWebService(getActivity());
+        mAppWebService.setAppWebService(this);
+        mButtonLogin = view.findViewById(R.id.bLogin);
+        mButtonLogin.setOnClickListener(this);
 
         return view;
     }
@@ -46,10 +54,13 @@ public class LoginPacienteFragment extends Fragment implements View.OnClickListe
         switch (id){
             case R.id.bLogin:
                 if (validateUser(mPaciente)){
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-
-
+                    //Intent intent = new Intent(getActivity(), MainActivity.class);
+                    //startActivity(intent);
+                    mPaciente.setCorreo(mEdNombre.getText().toString());
+                    mPaciente.setPassword(mEdPassword.getText().toString());
+                    mAppWebService.loging(mPaciente);
                 }
+
                 break;
 
         }
@@ -64,6 +75,15 @@ public class LoginPacienteFragment extends Fragment implements View.OnClickListe
             return false;
         }
         return true;
+
+    }
+
+    @Override
+    public void didFInish(Object response) {
+        mPaciente = (Paciente) response;
+        Intent intent = new Intent(getActivity(), MenuPaciente.class);
+        startActivity(intent);
+
 
     }
 }

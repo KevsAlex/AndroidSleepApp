@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="deco.sleepp">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="portrait">
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".MenuCuestionarios"></activity>
-        <activity android:name=".AcercaDe"></activity>
-        <activity android:name=".TeoriaTrastornos"></activity>
-        <activity android:name=".EscalaEpworth"></activity>
-        <activity android:name=".CalidadSueno"></activity>
-        <activity android:name=".ClinicaInformacion"></activity>
-        <activity android:name=".TrastornosActivity"></activity>
-        <activity android:name=".InsomnioActivity"></activity>
-        <activity android:name=".ApneaActivity"></activity>
-        <activity android:name=".SahosActivity"></activity>
-        <activity android:name=".SomnolenciaActivity"></activity>
-        <activity android:name=".NarcolepsiaActivity"></activity>
-        <activity android:name=".InsuficienciaActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MenuCuestionarios" />
+        <activity android:name=".AcercaDe" />
+        <activity android:name=".TeoriaTrastornos" />
+        <activity android:name=".EscalaEpworth" />
+        <activity android:name=".CalidadSueno" />
+        <activity android:name=".ClinicaInformacion" />
+        <activity android:name=".TrastornosActivity" />
+        <activity android:name=".InsomnioActivity" />
+        <activity android:name=".ApneaActivity" />
+        <activity android:name=".SahosActivity" />
+        <activity android:name=".SomnolenciaActivity" />
+        <activity android:name=".NarcolepsiaActivity" />
+        <activity android:name=".InsuficienciaActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
@@ -35,6 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MenuPaciente"
+            android:label="@string/title_activity_menu_paciente"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

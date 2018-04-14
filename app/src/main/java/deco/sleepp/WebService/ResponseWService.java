@@ -6,4 +6,6 @@ package deco.sleepp.WebService;
 
 public interface ResponseWService {
     void didFInish(Object response);
+
+    void didFinishWithError(int code);
 }

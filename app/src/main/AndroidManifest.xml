@@ -12,7 +12,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".MenuCuestionarios" />
         <activity android:name=".AcercaDe" />
         <activity android:name=".TeoriaTrastornos" />
@@ -28,7 +28,7 @@
         <activity android:name=".InsuficienciaActivity" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +39,10 @@
         <activity
             android:name=".MenuPaciente"
             android:label="@string/title_activity_menu_paciente"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".RegistroActivity"
+            android:label="@string/title_activity_registro"
             android:theme="@style/AppTheme"></activity>
     </application>
 

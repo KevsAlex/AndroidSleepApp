@@ -1,6 +1,7 @@
 package deco.sleepp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 import deco.sleepp.Fragments.LoginDoctorFragment;
 import deco.sleepp.Fragments.LoginPacienteFragment;
+import deco.sleepp.Utils.Utils;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,6 +29,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        if (!Utils.getIDPACIENTE(this).equals("")){
+            Intent intent = new Intent(this,MenuPaciente.class);
+            startActivity(intent);
+        }
         mViewPager = findViewById(R.id.viewPager);
         mLoginPacienteFragment = new LoginPacienteFragment();
         mDoctorFragment = new LoginDoctorFragment();
@@ -35,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         mFragments.add(mDoctorFragment);
         MyAdapter adapter = new MyAdapter(getSupportFragmentManager(),mFragments);
         mViewPager.setAdapter(adapter);
+
 
         //FragmentManager manager = getSupportFragmentManager();
         //FragmentTransaction transaction= manager.beginTransaction();

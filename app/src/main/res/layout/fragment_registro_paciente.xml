@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="deco.sleepp.Fragments.RegistroPaciente"
+    >
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+
+
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/clinica_logo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView6"
+        android:layout_marginTop="23dp"
+        android:gravity="center"
+        android:text="Registro"
+        android:textColor="#51514b"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:id="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/edCorreoRegistro"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:gravity="center"
+        android:hint="correo" />
+
+    <EditText
+        android:id="@+id/edPassRegistro"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edCorreoRegistro"
+        android:layout_alignStart="@+id/edCorreoRegistro"
+        android:layout_below="@+id/edCorreoRegistro"
+        android:layout_marginTop="17dp"
+        android:gravity="center"
+        android:hint="password" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edPassRegistro"
+        android:layout_alignStart="@+id/edPassRegistro"
+        android:layout_below="@+id/edPassRegistro"
+        android:layout_marginTop="11dp"
+        android:gravity="center"
+        android:hint="nombre"
+        android:id="@+id/edNombrePaciente" />
+
+    <Button
+        android:id="@+id/btRegistroPaciente"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edNombrePaciente"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/view_border"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Registrate"
+        android:textColor="#2e2e2a" />
+
+
+
+
+
+
+</RelativeLayout>

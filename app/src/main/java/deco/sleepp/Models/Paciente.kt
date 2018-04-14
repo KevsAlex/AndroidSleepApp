@@ -6,7 +6,7 @@ import java.util.*
  * Created by admin on 07/04/18.
  */
 class Paciente {
-    var id : String? = ""
+
     var nombre : String? = ""
     var apellidoPaterno : String? = ""
     var apellidoMaterno : String? = ""
@@ -17,4 +17,5 @@ class Paciente {
     var idDoctor : Int? = 0
     var password : String? = ""
     var correo : String? = ""
+    var idPaciente : String? = ""
 }

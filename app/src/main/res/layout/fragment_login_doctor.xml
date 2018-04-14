@@ -1,13 +1,68 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="deco.sleepp.Fragments.LoginDoctorFragment">
+    android:background="@drawable/skyblur"
+    android:focusable="true"
+    tools:context="deco.sleepp.Fragments.LoginPacienteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/clinica_logo" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="22dp"
+        android:gravity="center"
+        android:text="Ingresar como doctor"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:hint="correo"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textColorHint="#c4c4ba"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/edCorreoDoctor"
+        />
+
+    <EditText
+        android:hint="clave única"
+        android:id="@+id/edClave"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textColorHint="#c4c4ba"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edCorreoDoctor"
+        android:layout_alignStart="@+id/edCorreoDoctor"
+        android:layout_below="@+id/edCorreoDoctor" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edClave"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/view_border"
+        android:text="Ingresa"
+        android:textColor="@color/white"
+        android:id="@+id/bLogin" />
+</RelativeLayout>

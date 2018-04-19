@@ -12,7 +12,8 @@ import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 
-import deco.sleepp.Fragments.LoginDoctorFragment;
+
+import deco.sleepp.Fragments.LoginDoctorFrag;
 import deco.sleepp.Fragments.LoginPacienteFragment;
 import deco.sleepp.Utils.Utils;
 
@@ -20,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private LoginPacienteFragment mLoginPacienteFragment;
-    private LoginDoctorFragment mDoctorFragment;
+    private LoginDoctorFrag mDoctorFragment;
     private ViewPager mViewPager;
     private ArrayList<Fragment> mFragments;
 
@@ -35,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         mViewPager = findViewById(R.id.viewPager);
         mLoginPacienteFragment = new LoginPacienteFragment();
-        mDoctorFragment = new LoginDoctorFragment();
+        mDoctorFragment = new LoginDoctorFrag();
         mFragments = new ArrayList<>();
         mFragments.add(mLoginPacienteFragment);
         mFragments.add(mDoctorFragment);

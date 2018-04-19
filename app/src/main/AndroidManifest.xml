@@ -28,7 +28,6 @@
         <activity android:name=".InsuficienciaActivity" />
         <activity
             android:name=".LoginActivity"
-
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +42,14 @@
         <activity
             android:name=".RegistroActivity"
             android:label="@string/title_activity_registro"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".QuestionsHolder"
+            android:label="@string/title_activity_questions_holder"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MenuDoctorActivity"
+            android:label="@string/title_activity_menu_doctor"
             android:theme="@style/AppTheme"></activity>
     </application>
 

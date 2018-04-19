@@ -93,5 +93,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_menu_paciente">MenuPaciente</string>
     <string name="title_activity_registro">RegistroActivity</string>
+    <string name="title_activity_questions_holder">QuestionsHolder</string>
+    <string name="title_activity_menu_doctor">MenuDoctorActivity</string>
 
 </resources>

@@ -140,6 +140,54 @@ public class AppWebService {
 
     }
 
+    public void getPacienteById(String idPaciente){
+
+        final JSONObject json = new JSONObject();
+        try {
+            json.put("idPaciente", idPaciente);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String endoPoint = "http://mybackendtestin.esy.es/dreamBack/request/getPacienteById.php";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, endoPoint, json,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(Utils.APPNAME, response.toString());
+                        try {
+                            boolean error = response.getBoolean("error");
+                            if (!error){
+                                JSONObject jsonPaciente = response.getJSONObject("paciente");
+                                Paciente paciente = new Paciente();
+                                paciente.setIdPaciente(jsonPaciente.getString("idPaciente"));
+                                paciente.setNombre("bxbxbx");
+                                if (jsonPaciente.getString("idPaciente") == null){
+                                    paciente.setIdDoctor(null);
+                                }else{
+                                    paciente.setIdDoctor(Integer.valueOf(jsonPaciente.getString("idPaciente")));
+                                }
+                                mResponse.didFInish(paciente);
+                            }else{
+                                mResponse.didFinishWithError(0);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue request = VolleySingleton.getInstance(mContext).getRequestQueue();
+        request.add(jsonObjectRequest);
+
+    }
+
     public ResponseWService getResponse() {
         return mResponse;
     }

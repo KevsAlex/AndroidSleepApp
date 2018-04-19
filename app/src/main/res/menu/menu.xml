@@ -6,7 +6,7 @@
         android:id="@+id/id_informacion"
         android:icon="@drawable/ic_letteri"
         android:title="@string/String_explicacion"
-        app:showAsAction="never">
+        app:showAsAction="always">
     </item>
 
     <item

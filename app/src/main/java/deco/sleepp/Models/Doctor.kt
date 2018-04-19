@@ -7,5 +7,6 @@ class Doctor {
     var idDoctor : Int? = 0
     var nombre : String? = ""
     var password : String? = ""
+    var claveUnica : String? = ""
 
 }

@@ -31,7 +31,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:hint="correo"
+        android:hint="nombreDoctor"
         android:layout_marginTop="25dp"
         android:gravity="center"
         android:textColor="@color/white"
@@ -64,5 +64,5 @@
         android:background="@drawable/view_border"
         android:text="Ingresa"
         android:textColor="@color/white"
-        android:id="@+id/bLogin" />
+        android:id="@+id/bLoginDoctor" />
 </RelativeLayout>

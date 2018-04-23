@@ -6,11 +6,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,26 +20,35 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
-public class CalidadSueno extends AppCompatActivity implements View.OnClickListener {
+import deco.sleepp.Models.Cuestionario;
+import deco.sleepp.Models.Paciente;
+import deco.sleepp.Models.Pregunta;
+import deco.sleepp.Utils.Utils;
+import deco.sleepp.WebService.AppWebService;
+import deco.sleepp.WebService.ResponseWService;
+
+public class CalidadSueno extends AppCompatActivity implements View.OnClickListener, ResponseWService, RadioGroup.OnCheckedChangeListener {
 
     Toolbar sueno_toolbar;
 
+    private ArrayList<Pregunta> mPreguntas;
+    private String[] mTitulosPregunta;
+    private Cuestionario mCuestionario;
+    private Paciente mPaciente;
 
-    TextView tv_Respuesta_hora1;
-    TextView tv_Respuesta_hora2;
-
-    TextView tv_reporte;
-    TextView tv_reporte2;
-    TextView tv_reporte3;
-
-    ImageButton btn_establecer_horapr1;
-    ImageButton btn_establecer_horapr2;
-
-    TimePickerDialog timePickerDialog;
-
-    Button btn_reporte;
+    private AppWebService mAppWebService;
+    private TextView tv_Respuesta_hora1;
+    private TextView tv_Respuesta_hora2;
+    private TextView tv_reporte;
+    private TextView tv_reporte2;
+    private TextView tv_reporte3;
+    private ImageButton btn_establecer_horapr1;
+    private ImageButton btn_establecer_horapr2;
+    private TimePickerDialog timePickerDialog;
+    private Button btn_reporte;
 
     RadioGroup rg5;
     RadioGroup rg6;
@@ -60,28 +71,22 @@ public class CalidadSueno extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calidad_sueno);
-
-         /* Damos Soporte a el ToolBar */
+        mPreguntas = new ArrayList<>();
+        mTitulosPregunta = getResources().getStringArray(R.array.preguntasPaciente);
+        this.initPreguntas();
         sueno_toolbar = (Toolbar) findViewById(R.id.bar_escala_sueno);
         sueno_toolbar.setTitle("Calidad Sueño");
         setSupportActionBar(sueno_toolbar);
         ActionBar actionBarSueno = getSupportActionBar();
         actionBarSueno.setDisplayHomeAsUpEnabled(true);
-
         btn_establecer_horapr1 = (ImageButton) findViewById(R.id.btn_hora1);
         btn_establecer_horapr2 = (ImageButton) findViewById(R.id.btn_hora2);
-
         tv_Respuesta_hora1 = (TextView) findViewById(R.id.tv_hora1);
         tv_Respuesta_hora2 = (TextView) findViewById(R.id.tv_hora2);
-
-
         tv_reporte = (TextView) findViewById(R.id.tv_todo1);
         tv_reporte2 = (TextView) findViewById(R.id.tv_todo2);
         tv_reporte3 = (TextView) findViewById(R.id.tv_todo3);
-
         btn_reporte = (Button) findViewById(R.id.btn_imprime_edo);
-
-
         rg5 = (RadioGroup) findViewById(R.id.radiogroup5);
         rg6 = (RadioGroup) findViewById(R.id.radiogroup6);
         rg7 = (RadioGroup) findViewById(R.id.radiogroup7);
@@ -98,16 +103,17 @@ public class CalidadSueno extends AppCompatActivity implements View.OnClickListe
         rg18 = (RadioGroup) findViewById(R.id.radiogroup18);
         rg19 = (RadioGroup) findViewById(R.id.radiogroup19);
         rg20 = (RadioGroup) findViewById(R.id.radiogroup20);
-
-
         btn_establecer_horapr1.setOnClickListener(this);
         btn_establecer_horapr2.setOnClickListener(this);
-        btn_reporte.setOnClickListener(this); // Este es el mero mero Boton Ranchero que imprime mis resultados globales
+        btn_reporte.setOnClickListener(this);
+        mPaciente = (Paciente) getIntent().getExtras().getSerializable(MenuPaciente.Companion.getKEY_PACIENTE());
+        mAppWebService = new AppWebService(this);
+        mAppWebService.setResponse(this);
+        mAppWebService.crearCuestionario(mPaciente);
+        rg5.setOnCheckedChangeListener(this);
+        rg6.setOnCheckedChangeListener(this);
+    }
 
-    } // fin del metodo onCreate()
-
-
-    // **** Es necesario para que funcione el Toolbar ****
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -247,17 +253,190 @@ public class CalidadSueno extends AppCompatActivity implements View.OnClickListe
                     RadioButton selectedRadioButton20 = (RadioButton) findViewById(selectedRadioButtonID20);
                     String selectedRadioButtonText20 = selectedRadioButton20.getText().toString();
 
-
-
+                    this.setResults();
                     tv_reporte.setText("" + "Pregunta 1: " + ResHora1 + "\n" + "" + "Pregunta 2: " + ResHora2 + "\n" + "" + "La respuesta 5 es: " + selectedRadioButtonText5 + "\n" + "" + "La respuesta 6 es: " + selectedRadioButtonText6 + "\n" + "" + "La respuesta 7 es: " + selectedRadioButtonText7 + "\n" + "" + "La respuesta 8 es: " + selectedRadioButtonText8 + "\n" + "" + "La respuesta 9 es: " + selectedRadioButtonText9 + "\n" + "" + "La respuesta 10 es: " + selectedRadioButtonText10);
                     tv_reporte2.setText("" + "Pregunta 11: " + selectedRadioButtonText11 + "\n" + "" + "Pregunta 12: " + selectedRadioButtonText12 + "\n" + "" + "Pregunta 13: " + selectedRadioButtonText13 + "\n" + "" + "Pregunta 14: " + selectedRadioButtonText14 + "\n" + "" + "Pregunta 15: " + selectedRadioButtonText15);
                     tv_reporte3.setText("" + "La respuesta 16 es: " + selectedRadioButtonText16 + "\n" + "" + "La respuesta 17 es: " + selectedRadioButtonText17 + "\n" + "" + "La respuesta 18 es: " + selectedRadioButtonText18 + "\n" + "" + "La respuesta 19 es: " + selectedRadioButtonText19 + "\n" + "" + "La respuesta 20 es: " + selectedRadioButtonText20);
 
-                }else{
+
+                } else {
                     tv_reporte.setText("Por favor complete TODAS las respuestas para ver su resultados");
                 }
                 break;
         } // Fin del Switch()
     }
 
-} // fin de la Activity CalidadSueno
+    /**
+     * Inicializamos el arreglo de preguntas
+     */
+    private void initPreguntas() {
+        for (String titulo : mTitulosPregunta) {
+            Pregunta pregunta = new Pregunta();
+            pregunta.setPregunta(titulo);
+            mPreguntas.add(pregunta);
+        }
+    }
+
+    private void setResults() {
+        for (int i = 0; i < mPreguntas.size(); i++) {
+            Pregunta pregunta = mPreguntas.get(i);
+            switch (i) {
+                case 0:
+                    String respuesta0 = tv_Respuesta_hora1.getText().toString();
+                    pregunta.setRespuesta(respuesta0);
+                    pregunta.setAnswered(true);
+                    break;
+                case 1:
+                    String respuesta1 = tv_Respuesta_hora2.getText().toString();
+                    pregunta.setRespuesta(respuesta1);
+                    pregunta.setAnswered(true);
+                    break;
+                case 2:
+                    String respuesta2 = ((EditText) findViewById(R.id.et_pregunta3)).getText().toString();
+                    pregunta.setRespuesta(respuesta2);
+                    pregunta.setAnswered(true);
+                case 3:
+                    String respuesta3 = ((EditText) findViewById(R.id.et_pregunta4)).getText().toString();
+                    pregunta.setRespuesta(respuesta3);
+                    pregunta.setAnswered(true);
+                    break;
+            }
+        }
+
+        this.enviarPreguntas();
+
+    }
+
+    /**
+     * Envia las preguntas a la base de datos
+     */
+    private void enviarPreguntas() {
+        for (Pregunta pregunta : mPreguntas) {
+            if (pregunta.isAnswered()) {
+                this.mAppWebService.crearPregunta(pregunta, mCuestionario);
+            }
+        }
+        Toast.makeText(this, "Las preguntas se han contestado correctamente, le enviaremos a tu doctor los resultados", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void didFInish(Object response) {
+        if (response instanceof Cuestionario) {
+            mCuestionario = (Cuestionario) response;
+            Log.d(Utils.APPNAME, "idCuestionario" + mCuestionario.getIdCuestionario());
+        } else if (response instanceof Pregunta) {
+
+        }
+
+
+    }
+
+    @Override
+    public void didFinishWithError(int code) {
+
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+        RadioButton radioButton = findViewById(checkedId);
+        String respuesta = radioButton.getText().toString();
+        if (radioGroup == rg5) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(4);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg6) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(5);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg7) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(6);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+
+        }
+        if (radioGroup == rg8) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(7);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+
+        }
+        if (radioGroup == rg9) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(8);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg10) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(9);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg11) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(10);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg12) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(11);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg13) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(12);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg14) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(13);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg15) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(14);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg16) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(15);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg17) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(16);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg18) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(17);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg19) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(18);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+        if (radioGroup == rg20) {
+            Log.d(Utils.APPNAME, "radio 5");
+            Pregunta pregunta = mPreguntas.get(19);
+            pregunta.setAnswered(true);
+            pregunta.setRespuesta(respuesta);
+        }
+    }
+}

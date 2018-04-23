@@ -8,7 +8,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import deco.sleepp.Dialogs.MyDialog
 import deco.sleepp.Fragments.QuestionarioFragment
+import deco.sleepp.Models.Doctor
 import deco.sleepp.Models.Paciente
 import deco.sleepp.Utils.Utils
 import deco.sleepp.WebService.AppWebService
@@ -18,10 +20,15 @@ import deco.sleepp.WebService.ResponseWService
 import kotlinx.android.synthetic.main.activity_menu_paciente.*
 import kotlinx.android.synthetic.main.content_menu_paciente.*
 
-class MenuPaciente : AppCompatActivity(), View.OnClickListener, ResponseWService {
+class MenuPaciente : AppCompatActivity(), View.OnClickListener, ResponseWService, MyDialog.DialogDelegate {
 
     private var mAppWebService: AppWebService? = null
     private var mPaciente: Paciente? = null
+    private var dialog: MyDialog? = null
+
+    companion object {
+        public val KEY_PACIENTE = "keyPaciente"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +41,7 @@ class MenuPaciente : AppCompatActivity(), View.OnClickListener, ResponseWService
         mAppWebService = AppWebService(this)
         mAppWebService?.response = this
         mAppWebService?.getPacienteById(Utils.getIDPACIENTE(this))
+        dialog = MyDialog()
 
     }
 
@@ -69,8 +77,15 @@ class MenuPaciente : AppCompatActivity(), View.OnClickListener, ResponseWService
                 startActivity(ir_clinica)
             }
             R.id.viewEncuesta -> {
-                val ir_encuestas = Intent(this, CalidadSueno::class.java)
-                startActivity(ir_encuestas)
+                if (mPaciente?.idDoctor != 0) {
+                    val ir_encuestas = Intent(this, CalidadSueno::class.java)
+                    ir_encuestas.putExtra(KEY_PACIENTE, mPaciente)
+                    startActivity(ir_encuestas)
+                } else {
+                    dialog?.delegate = this
+                    dialog?.show(fragmentManager, "")
+                }
+
                 /*
                 var manager = supportFragmentManager
                 var transaction = manager.beginTransaction()
@@ -87,12 +102,31 @@ class MenuPaciente : AppCompatActivity(), View.OnClickListener, ResponseWService
     }
 
     override fun didFInish(response: Any?) {
-        mPaciente = response as Paciente?
-        mTextName.text = "Nombre :" + mPaciente?.nombre
+        if (response is Paciente) {
+            mPaciente = response
+            mTextName.text = "Nombre :" + mPaciente?.nombre
+        }
+        if (response is Doctor) {
+            var doctor: Doctor = response
+            mPaciente?.idDoctor = doctor.idDoctor
+            dialog?.dismiss()
+            Toast.makeText(this, "El registro de tu doctor ha sido exitoso", Toast.LENGTH_SHORT).show()
 
+        }
     }
 
     override fun didFinishWithError(code: Int) {
-        Toast.makeText(this, "Errors", Toast.LENGTH_SHORT).show()
+        if (code != 0) {
+            Toast.makeText(this, "Hubo un error", Toast.LENGTH_SHORT).show()
+            dialog?.dismiss()
+        } else {
+            Toast.makeText(this, "Hubo un error registrando tu doctor", Toast.LENGTH_SHORT).show()
+            dialog?.dismiss()
+        }
+
+    }
+
+    override fun asignarDoctor(claveDoctor: String?) {
+        mAppWebService?.seteaIdDoctor(mPaciente, claveDoctor)
     }
 }

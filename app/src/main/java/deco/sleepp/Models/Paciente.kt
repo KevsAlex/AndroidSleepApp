@@ -1,11 +1,12 @@
 package deco.sleepp.Models
 
+import java.io.Serializable
 import java.util.*
 
 /**
  * Created by admin on 07/04/18.
  */
-class Paciente {
+class Paciente : Serializable{
 
     var nombre : String? = ""
     var apellidoPaterno : String? = ""

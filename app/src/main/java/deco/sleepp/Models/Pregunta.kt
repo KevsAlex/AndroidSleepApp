@@ -7,4 +7,5 @@ class Pregunta {
     var idPregunta : Int? = 0
     var pregunta : String? = ""
     var respuesta : String? = ""
+    var isAnswered : Boolean? = false
 }

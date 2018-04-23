@@ -41,6 +41,29 @@
     <string name="pregunta_20">20.- ¿Cuántas noches por semana toma medicina para dormir?</string>
 
 
+        <string-array name="preguntasPaciente">
+            <item>¿Habitualmente a qué hora se acuesta para dormir?</item>
+            <item>¿Habitualmente a qué hora se levanta para iniciar sus actividades y ya no se vuelve a acostar?</item>
+            <item>¿Cuánto tarda para empezar a dormir desde que se acuesta (min)?</item>
+            <item>¿En promedio cuánto tiempo duerme por noche hr : min?</item>
+            <item>¿Cuántas noches por semana se desvela?</item>
+            <item>¿Cuántas noches por semana tiene dificultad para empezar a dormir?</item>
+            <item>¿Cuántas veces despierta por noche una vez que se ha quedado dormido?</item>
+            <item>¿Cuántas noches por semana despierta y ya no puede volver a dormir?</item>
+            <item>¿Cuántas noches por semana tiene pesadillas?</item>
+            <item>¿Qué calificación le da a la calidad de su sueño pensando que 0 es la peor calidad y 10 es la mejor?</item>
+            <item>¿Cuántos días por semana tiene dificultad para levantarse?</item>
+            <item>¿Cuántos días por semana tiene cansancio?</item>
+            <item>¿Cuántos días por semana tiene necesidad de dormir durante el día?</item>
+            <item>¿Cuántos días por semana tiene malestar general por haber dormido mal?</item>
+            <item>En general ¿Cómo considera su calidad de sueño?</item>
+            <item>¿Cuántas noches por semana tiene una sensación de intranquilidad o nerviosismo en las piernas que no le permita empezar a dormir?</item>
+            <item>¿Cuántas noches por semana despierta con la sensación de que tiene contracciones en las piernas?</item>
+            <item>¿Cuántas noches por semana ronca o le han dicho que ronca?</item>
+            <item>¿Cuántas noches por semana tiene pausas en la respiración cuando duerme?</item>
+            <item>¿Cuántas noches por semana toma medicina para dormir?</item>
+        </string-array>
+
     <!-- Texto para las opciones de respuesta del tipo noche-->
     <string name="noches_0">0 noches</string>
     <string name="noches_1_2">1"-"2 noches</string>

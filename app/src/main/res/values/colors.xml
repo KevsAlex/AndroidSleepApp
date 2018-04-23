@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#4cadc1</color>
     <color name="colorPrimaryDark">#42dfdd</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#00bfd1</color>
 
     <color name="colorEncuestaSueno">#0277BD</color>
     <color name="naranja">#E65100</color>

@@ -112,6 +112,20 @@ public class CalidadSueno extends AppCompatActivity implements View.OnClickListe
         mAppWebService.crearCuestionario(mPaciente);
         rg5.setOnCheckedChangeListener(this);
         rg6.setOnCheckedChangeListener(this);
+        rg7.setOnCheckedChangeListener(this);
+        rg8.setOnCheckedChangeListener(this);
+        rg9.setOnCheckedChangeListener(this);
+        rg10.setOnCheckedChangeListener(this);
+        rg11.setOnCheckedChangeListener(this);
+        rg12.setOnCheckedChangeListener(this);
+        rg13.setOnCheckedChangeListener(this);
+        rg14.setOnCheckedChangeListener(this);
+        rg15.setOnCheckedChangeListener(this);
+        rg16.setOnCheckedChangeListener(this);
+        rg17.setOnCheckedChangeListener(this);
+        rg18.setOnCheckedChangeListener(this);
+        rg19.setOnCheckedChangeListener(this);
+        rg20.setOnCheckedChangeListener(this);
     }
 
     @Override

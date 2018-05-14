@@ -34,6 +34,10 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this,MenuPaciente.class);
             startActivity(intent);
         }
+        if (!Utils.getIDoctor(this).equals("")){
+            Intent intent = new Intent(this,MenuDoctorActivity.class);
+            startActivity(intent);
+        }
         mViewPager = findViewById(R.id.viewPager);
         mLoginPacienteFragment = new LoginPacienteFragment();
         mDoctorFragment = new LoginDoctorFrag();

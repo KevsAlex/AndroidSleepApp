@@ -8,4 +8,6 @@ class Pregunta {
     var pregunta : String? = ""
     var respuesta : String? = ""
     var isAnswered : Boolean? = false
+    var nombrePaciente : String? = ""
+    var isPaciente = false
 }

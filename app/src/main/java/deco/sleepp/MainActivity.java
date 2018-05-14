@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import deco.sleepp.Utils.Utils;
+
 /**
  * Este es el menú principal de la aplicación
  *
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.id_salir:
+                Utils.setIdpaciente(this,"");
                 finish();
                 break;
 

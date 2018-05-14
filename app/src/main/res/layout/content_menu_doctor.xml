@@ -49,13 +49,41 @@
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mRecyclerDoctor"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/card">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="40dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/card" />
+
+    <TextView
+        android:id="@+id/textDefault"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/card"
-        >
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="No hay preguntas disponibles para este doctor"
+        android:textColor="#51504e"
+        android:textSize="20sp"
+        android:visibility="gone">
 
-    </android.support.v7.widget.RecyclerView>
+    </TextView>
+
+
+
 
 </RelativeLayout>

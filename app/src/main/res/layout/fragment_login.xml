@@ -40,25 +40,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:id="@+id/edCorreoDoctor"
+        android:id="@+id/edNombreDoc"
         />
 
     <EditText
         android:hint="password"
-        android:id="@+id/edClave"
+        android:id="@+id/edClaveDoctor"
         android:gravity="center"
         android:textColor="@color/white"
         android:textColorHint="#c4c4ba"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/edCorreoDoctor"
-        android:layout_alignStart="@+id/edCorreoDoctor"
-        android:layout_below="@+id/edCorreoDoctor" />
+        android:layout_alignLeft="@+id/edNombreDoc"
+        android:layout_alignStart="@+id/edNombreDoc"
+        android:layout_below="@+id/edNombreDoc" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edClave"
+        android:layout_below="@+id/edClaveDoctor"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
         android:background="@drawable/view_border"

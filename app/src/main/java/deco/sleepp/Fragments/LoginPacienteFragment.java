@@ -40,8 +40,8 @@ public class LoginPacienteFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         mPaciente = new Paciente();
-        mEdNombre = view.findViewById(R.id.edCorreoDoctor);
-        mEdPassword = view.findViewById(R.id.edClave);
+        mEdNombre = view.findViewById(R.id.edNombreDoc);
+        mEdPassword = view.findViewById(R.id.edClaveDoctor);
         mAppWebService = new AppWebService(getActivity());
         mAppWebService.setResponse(this);
         mButtonLogin = view.findViewById(R.id.bLogin);
@@ -83,6 +83,7 @@ public class LoginPacienteFragment extends Fragment implements View.OnClickListe
         if (paciente.getPassword().isEmpty() || paciente.getNombre().isEmpty()) {
             return false;
         }
+
         return true;
 
     }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="deco.sleepp.InsomnioActivity">
+
+    <TextView
+        android:id="@+id/tv_insomnio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Insomnio"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_insomnio"
+        android:fontFamily="sans-serif"
+        android:paddingTop="8dp"
+        android:gravity="start"
+        android:text="Se entiende la presencia de dificultad para la conciliación o el mantenimiento del sueño, despertar precoz,
+o un sueño poco reparador, a pesar de disponer de condiciones adecuadas para el sueño.En los adultos, las quejas más habituales son
+la dificultad para la consolidación o el mantenimiento del sueño, y la existencia de largos periodos de vigilia durante la noche.
+En los niños es necesaria la descripción del sueño por un observador, y la dificultad para el sueño puede entenderse como una
+resistencia para irse a la cama o imposibilidad para dormir solo."
+        android:textSize="18sp"/>
+
+
+</RelativeLayout>

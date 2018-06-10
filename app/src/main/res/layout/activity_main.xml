@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="deco.sleepp.MainActivity">
+
+    <!-- seccion para incluir la appbar -->
+
+    <include
+        android:id="@+id/bar_principal"
+        layout="@layout/app_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"></include>
+
+    <!-- Este es el espacio de trabajo en blanco -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+
+        <!-- Este es la vista del menu general que tendra la aplcación -->
+        <!-- Boton numero1: ¿Que son los trastornos? -->
+        <LinearLayout
+            android:id="@+id/id_layoutCSueno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/informacion1"/>
+
+            <Button
+                android:id="@+id/button_tras_res"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:text="@string/String_Informacion"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Espacio de 5 dp antes de poner el siguiente boton -->
+        <LinearLayout
+            android:id="@+id/espacio1"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/id_layoutCSueno"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <!-- Boton numero2: Escalas para medir el sueño -->
+        <LinearLayout
+            android:id="@+id/id_layoutEscalas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/espacio1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/cuestionarios"/>
+
+            <Button
+                android:id="@+id/buton_escalas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:text="@string/String_escalas"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Espacio de 5 dp antes del siguiente boton -->
+        <LinearLayout
+            android:id="@+id/espacio2"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/id_layoutEscalas"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <!-- Boton numero 3: Boton acerca de la ubicación de la clinia de trastornos del sueño -->
+
+        <!-- Boton numero2: Escalas para medir el sueño -->
+        <LinearLayout
+            android:id="@+id/id_layoutUbicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/espacio2"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/logo_clinica"/>
+
+            <Button
+                android:id="@+id/button_info_clinica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:text="@string/String_clinica_presentacion"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

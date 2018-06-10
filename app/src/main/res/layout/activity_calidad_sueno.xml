@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="deco.sleepp.CalidadSueno">
+
+    <include
+        android:id="@+id/bar_escala_sueno"
+        layout="@layout/test_sueno_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </include>
+
+
+    <ScrollView
+        android:id="@+id/scroll_test_sueno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/bar_escala_sueno"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Titulo "Escala de calidad del sueño"-->
+            <TextView
+                android:id="@+id/tv_presentacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Escala de calidad del sueño"
+                android:textSize="28sp"
+                android:textStyle="bold"/>
+
+            <!-- Texto con las instrucciones de como llenar este cuestionario-->
+            <TextView
+                android:id="@+id/tv_instrucciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_presentacion"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/instrucciones_calidad_sueño"
+                android:textAlignment="textStart"
+                android:textSize="16sp"/>
+
+            <View
+                android:id="@+id/separador"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_instrucciones"
+                android:layout_marginTop="10dp"
+                android:background="#000000"/>
+
+            <!-- Pregunta 1 del cuestioario de la escala del sueño -->
+            <TextView
+                android:id="@+id/textview_pregunta1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separador"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+            <ImageButton
+                android:id="@+id/btn_hora1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textview_pregunta1"
+                android:src="@drawable/reloj"/>
+
+            <TextView
+                android:id="@+id/tv_hora1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textview_pregunta2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textview_pregunta1"
+                android:layout_toLeftOf="@+id/btn_hora1"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Establezca un horario"
+                android:textSize="16sp"/>
+
+
+            <!-- Pregunta 2 del cuestioario de la escala del sueño -->
+            <TextView
+                android:id="@+id/textview_pregunta2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_hora1"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+            <ImageButton
+                android:id="@+id/btn_hora2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textview_pregunta2"
+                android:src="@drawable/reloj"/>
+
+            <TextView
+                android:id="@+id/tv_hora2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textview_pregunta2"
+                android:layout_toLeftOf="@id/btn_hora2"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Establezca un horario"
+                android:textSize="16sp"
+                android:layout_above="@+id/textview_pregunta3"/>
+
+            <!-- Pregunta 3 del cuestioario de la escala del sueño -->
+            <TextView
+                android:id="@+id/textview_pregunta3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_hora2"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/et_pregunta3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textview_pregunta3"
+                android:layout_gravity="center_horizontal"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <!-- Pregunta 4 del cuestioario de la escala del sueño -->
+            <TextView
+                android:id="@+id/textview_pregunta4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_pregunta3"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/et_pregunta4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_pregunta4"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:inputType="time"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:ems="10"/>
+
+            <!-- Implementacion de la pregunta 5 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_pregunta4"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_5"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta5">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p5a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p5b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p5c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p5d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p5e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 6 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup5"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_6"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta6">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p6a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p6b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_1"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p6c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p6d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_3"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p6e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_4"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 7 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup6"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_7"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta7">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p7a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p7b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_1"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p7c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p7d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_3"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p7e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/veces_4"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 8 del cuestionario calidad de sueño-->
+
+            <TextView
+                android:id="@+id/textview_pregunta8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup7"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_8"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta8">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p8a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p8b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p8c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p8d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p8e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 9 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup8"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_9"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta9">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p9a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p9b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p9c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p9d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p9e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 10 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup9"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_10"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta10">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p10a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/numero_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p10b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/numero_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p10c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/numero_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p10d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/numero_7_8"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p10e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/numero_9_10"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 11 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup10"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_11"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta11">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p11a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p11b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p11c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p11d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p11e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 12 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup11"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_12"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta12">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p12a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p12b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p12c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p12d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p12e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 13 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup12"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_13"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta13">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p13a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p13b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p13c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p13d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p13e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 14 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup13"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_14"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta14">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p14a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p14b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p14c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p14d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p14e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/dias_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 15 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup14"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_15"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta15">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p15a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Muy buena"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p15b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Buena"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p15c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Regular"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p15d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Mala"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p15e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Muy mala"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 16 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup15"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_16"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta16">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p16a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p16b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p16c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p16d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p16e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 17 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup16"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_17"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta17">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p17a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p17b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p17c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p17d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p17e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 18 del cuestionario calidad de sueño-->
+            <TextView
+                android:id="@+id/textview_pregunta18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup17"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_18"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta18">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p18a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p18b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p18c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p18d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p18e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 19 del cuestionario calidad de sueño-->
+
+            <TextView
+                android:id="@+id/textview_pregunta19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup18"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_19"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta19">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p19a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p19b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p19c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p19d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p19e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <!-- Implementacion de la pregunta 20 del cuestionario calidad de sueño-->
+
+            <TextView
+                android:id="@+id/textview_pregunta20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radiogroup19"
+                android:background="@color/colorEncuestaSueno"
+                android:fontFamily="serif"
+                android:gravity="start"
+                android:text="@string/pregunta_20"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_pregunta20">
+
+                <RadioButton
+                    android:id="@+id/rdButton_p20a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_0"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p20b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_1_2"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p20c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_3_4"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p20d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_5_6"/>
+
+                <RadioButton
+                    android:id="@+id/rdButton_p20e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/noches_7"/>
+            </RadioGroup>
+
+            <View
+                android:id="@+id/separador2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/radiogroup20"
+                android:layout_marginTop="10dp"
+                android:background="#000000"/>
+
+            <!--- Implenentacion del boton para imprimir mis resultados obtenidos -->
+            <Button
+                android:id="@+id/btn_imprime_edo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separador2"
+                android:text="Grabar mis resultados"/>
+
+            <TextView
+                android:id="@+id/tv_todo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_imprime_edo"
+                android:fontFamily="serif"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_todo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_todo1"
+                android:fontFamily="serif"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_todo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_todo2"
+                android:fontFamily="serif"
+                android:textSize="18sp"/>
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+</RelativeLayout>
